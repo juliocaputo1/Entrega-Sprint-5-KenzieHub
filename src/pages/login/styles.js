@@ -85,6 +85,7 @@ margin-bottom: 2.5vh;
 
 @media screen and (min-width: 769px){
     width: 24vw;
+    cursor: pointer;
 }
 `
 
@@ -103,5 +104,6 @@ border-radius: 5%;
 
 @media screen and (min-width: 769px){
     width: 24vw;
+    cursor: pointer;
 }
 `

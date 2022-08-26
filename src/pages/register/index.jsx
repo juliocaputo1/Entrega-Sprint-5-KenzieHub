@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
@@ -6,11 +6,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { ContainerRegister, HeaderRegister, LogoRegister, ButtonLogoutDashboard, ContainerFormRegister, H3Register, PRegsiter, FormRegister, LabelRegister, InputRegister, SelectRegister, ButtonRegister } from "./styles"
+import { UserContext } from "../../providers/userProviders";
 
 
 function Register() {
 
     const his = useHistory()
+
+    const { handleRegister } = useContext(UserContext)
 
     const formSchema = yup.object().shape({
         name: yup.string().required("Nome obrigatório"),
@@ -26,16 +29,7 @@ function Register() {
     });
 
     const onSubmitFunction = (data) => {
-        axios.post("https://kenziehub.herokuapp.com/users", data)
-            .then((response) => {
-                console.log(response.data)
-                his.push("/")
-                alert("Usuário cadastrado com sucesso!")
-            })
-            .catch((err) => {
-                console.log(err)
-                alert("Não foi possível cadastrar o usuário!")
-            });
+        handleRegister(data)
     }
 
     return (

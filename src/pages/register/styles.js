@@ -47,6 +47,7 @@ height: 5vh;
 
 @media screen and (min-width: 769px){
     width: 8vw;
+    cursor: pointer;
 }
 `
 export const ContainerFormRegister = styled.div`
@@ -116,6 +117,7 @@ color: #F8F9FA;
 
 @media screen and (min-width: 769px){
     width: 30vw;
+    cursor: pointer;
 }
 `
 
@@ -128,5 +130,6 @@ border-radius: 5%;
 
 @media screen and (min-width: 769px){
     width: 30vw;
+    cursor: pointer;
 }
 `

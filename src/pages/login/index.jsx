@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
@@ -7,11 +7,14 @@ import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Container, Logo, DivLogin, H3Login, FormLogin, LabelLogin, InputLogin, ButtonEntrarLogin, PCadastrarLogin, ButtonCadastarLogin } from "./styles";
+import { UserContext } from "../../providers/userProviders";
 
 
 function Login() {
 
     const his = useHistory()
+
+    const { handleLogin } = useContext(UserContext)
 
     const formSchema = yup.object().shape({
         email: yup.string().required("E-mail obrigatório"),
@@ -23,21 +26,7 @@ function Login() {
     });
 
     const onSubmitFunction = (data) => {
-        axios.post("https://kenziehub.herokuapp.com/sessions", data)
-            .then((response) => {
-                console.log(response.data)
-                localStorage.clear()
-                localStorage.setItem("@TOKEN", response.data.token)
-                localStorage.setItem("@USERID", response.data.user.id)
-                localStorage.setItem("@USERNAME", response.data.user.name)
-                localStorage.setItem("@USERMODULE", response.data.user.course_module)
-                alert("Login feito com sucesso! ")
-                his.push("/dashboard")
-            })
-            .catch((err) => {
-                console.log(err)
-                alert("Não foi possível fazer o login!")
-            });
+        handleLogin(data)
     }
 
     return (
