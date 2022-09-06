@@ -1,13 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Login from "../login";
 import { useHistory } from "react-router-dom";
-import { DivDashboard, HeaderDashboard, LogoDashboard, ButtonLogoutDashboard, DivDadosDashboard, H3GreetingDashboard, PModuleDashboard, DivDevelopingApplication, H3Technologies, ButtonTechnologies, DivMenuTechonolgies, DivTechnologies, UlTechnologies, LiTechnologies, TitleTechnologies, StatusTechnologies, ButtonRemoveTechnologies, DivTitleStatus } from "./styles.js"
+import { DivDashboard, HeaderDashboard, LogoDashboard, ButtonLogoutDashboard, DivDadosDashboard, H3GreetingDashboard, PModuleDashboard, DivDevelopingApplication, H3Technologies, ButtonTechnologies, DivMenuTechonolgies, DivTechnologies, UlTechnologies, LiTechnologies, TitleTechnologies, StatusTechnologies, ButtonRemoveTechnologies, DivTitleStatus } from "./styles"
 import { UserContext } from "../../providers/userProviders";
 import { useContext } from "react"
 import Modal from "../../components/modal";
 import { TechContext } from "../../providers/techProvider";
-import axios from "axios";
 
 function Dashboard() {
 
@@ -43,7 +39,7 @@ function Dashboard() {
                     <Modal show={show}></Modal>
                 </DivMenuTechonolgies>
                 <DivTechnologies>
-                    {techs?.map((tech, index) => {
+                    {techs?.map((tech: { title: string; status: string; id: Number; }, index: number) => {
                         return (
                             <UlTechnologies key={index}>
                                 <LiTechnologies>

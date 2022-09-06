@@ -1,18 +1,13 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import axios from "axios";
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { Container, Logo, DivLogin, H3Login, FormLogin, LabelLogin, InputLogin, ButtonEntrarLogin, PCadastrarLogin, ButtonCadastarLogin } from "./styles";
-import { UserContext } from "../../providers/userProviders";
+import { IUser, UserContext } from "../../providers/userProviders";
 
 
 function Login() {
-
-    const his = useHistory()
 
     const { handleLogin } = useContext(UserContext)
 
@@ -21,11 +16,11 @@ function Login() {
         password: yup.string().required("Senha obrigatória")
     })
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm<IUser>({
         resolver: yupResolver(formSchema),
     });
 
-    const onSubmitFunction = (data) => {
+    const onSubmitFunction = (data: any) => {
         handleLogin(data)
     }
 

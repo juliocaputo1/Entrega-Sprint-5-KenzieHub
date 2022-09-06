@@ -1,17 +1,13 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import axios from "axios";
-import { useHistory } from "react-router-dom";
 import { ContainerRegister, HeaderRegister, LogoRegister, ButtonLogoutDashboard, ContainerFormRegister, H3Register, PRegsiter, FormRegister, LabelRegister, InputRegister, SelectRegister, ButtonRegister } from "./styles"
 import { UserContext } from "../../providers/userProviders";
-
+import { IUser } from "../../providers/userProviders"
 
 function Register() {
-
-    const his = useHistory()
 
     const { handleRegister } = useContext(UserContext)
 
@@ -24,11 +20,11 @@ function Register() {
         contact: yup.string().required("Forma de contato obrigatória"),
     })
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm<IUser>({
         resolver: yupResolver(formSchema),
     });
 
-    const onSubmitFunction = (data) => {
+    const onSubmitFunction = (data: IUser) => {
         handleRegister(data)
     }
 
@@ -57,8 +53,7 @@ function Register() {
                         {errors.password?.message}
                     </LabelRegister>
                     <LabelRegister>Confirme sua senha
-                        <InputRegister type="password" placeholder="Digite novamente sua senha" {...register("confirmPassword")}></InputRegister>
-                        {errors.confirmPassword?.message}
+                        <InputRegister type="password" placeholder="Digite novamente sua senha" {...register("password")}></InputRegister>
                     </LabelRegister>
                     <LabelRegister>Bio
                         <InputRegister placeholder="Fale sobre você" {...register("bio")}></InputRegister>

@@ -1,4 +1,3 @@
-import React from "react";
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -6,7 +5,6 @@ import { DivModal, ModalHeader, H3ModalHeader, ButtonCloseModal, ModalBody, Moda
 import { UserContext } from "../../providers/userProviders";
 import { useContext } from "react"
 import { TechContext } from "../../providers/techProvider";
-import axios from "axios";
 
 function Modal() {
 
@@ -24,7 +22,7 @@ function Modal() {
         resolver: yupResolver(formSchema),
     });
 
-    const onSubmitFunction = (data) => {
+    const onSubmitFunction = (data: any) => {
         addTech(data)
     }
 
