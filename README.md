@@ -6,7 +6,9 @@ Na aplicação foram utilizados Typescript e ReactJS, além de diversas outras b
 
 Além disso, foi consumida a seguinte API: https://kenziehub.herokuapp.com. 
 
-Ademais, na aplicação são utilizados métodos POST, GET, PATCH E DELETE, cada um com uma rota específica para criação, leitura, atualização e deleção de usuários e tecnologias. Além disso, foi criada uma rota POST para login de usuário que retorna um token para o acesso do mesmo.
+Ademais, na aplicação são utilizados métodos POST, GET e DELETE, cada um com uma rota específica para criação, leitura e deleção de usuários e tecnologias. Além disso, foi criada uma rota POST para login de usuário que retorna um token para o acesso do mesmo.
+
+Por fim, foi feito deploy do projeto no vercel no seguinte link: https://react-entrega-s2-formulario-de-cadastro-git-07bed5-juliocaputo1.vercel.app/
 
 
 # Getting Started with Create React App
