@@ -1,3 +1,14 @@
+# M3 - S5 - Entrega - KenzieHub
+
+Esse projeto foi feito como entrega avaliativa no módulo 3 do curso de Desenvolvedor Full Stack da Kenzie Academy Brasil. Nele, é criada uma aplicação que permite a um usuário organizar a lista de tecnologias às quais ele tem algum domínio.
+
+Na aplicação foram utilizados Typescript e ReactJS, além de diversas outras bibliotecas e/ou tecnologias, como react-hook-form, react-router-dom, yup, axios, além de CSS com styled-components.
+
+Além disso, foi consumida a seguinte API: https://kenziehub.herokuapp.com. 
+
+Ademais, na aplicação são utilizados métodos POST, GET, PATCH E DELETE, cada um com uma rota específica para criação, leitura, atualização e deleção de usuários e tecnologias. Além disso, foi criada uma rota POST para login de usuário que retorna um token para o acesso do mesmo.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
